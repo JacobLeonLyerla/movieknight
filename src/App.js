@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 
-//Importing dependencies axios is used for http request.
+// Importing dependencies axios is used for http request.
 import axios from "axios";
-import { Media } from "reactstrap";
+// Using reactstrap and deconstructing the Media element
+import { Media, Row, Col } from "reactstrap";
 import "./App.css";
 
 class App extends Component {
@@ -12,16 +13,16 @@ class App extends Component {
     totalPages: 0
   };
 
-  // adding a life cycle method to call the the database when the application is loaded
+  // Adding a life cycle method to call the the database when the application is loaded
   componentDidMount() {
     this.fetchMovies();
   }
   fetchMovies = page => {
-    // when page is defined it will be set to that param,
-    // when its not we will just set it to the local state
-    page ? (page = page) : (page = this.state.page);
+    // When page is defined it will be set to that param,
+    // When its not we will just set it to the local state
+    if (page === undefined) page = this.state.page;
     // Making a call to the database to see how the data comes back and testing my key
-    // this call will get a list of movies currently in theaters
+    // This call will get a list of movies currently in theaters
 
     axios
       .get(
@@ -43,15 +44,17 @@ class App extends Component {
     console.log(this.state.movies);
     if (this.state.movies !== []) {
       return this.state.movies.map(movie => (
-        <div key={movie.title}>
-        <div style={{fontSize:"1.3vw"}}>{movie.title}</div>
-          
+        <Col md="3" key={movie.title}>
+          <div style={{ fontSize: "1.3vw" }}>{movie.title}</div>
+          {/* Using my reactstrap Media component in order to render the jpg image that is stored,
+          inside of the movie object, this is just a test however i would like to use this
+          on the movie view, where we will show the single movie and it's details */}
+
           <Media
             style={{ width: "16vw" }}
             src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
           />
-   
-        </div>
+        </Col>
       ));
     }
   };
@@ -59,7 +62,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.displayMovies()}
+        <Row>{this.displayMovies()}</Row>
         {/* Display the local total number of pages for the data that was gotten in data base request */}
         <div>{this.state.totalPages}</div>
         {/* First we display the current page */}
