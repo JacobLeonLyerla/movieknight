@@ -9,6 +9,7 @@ class App extends Component {
   // adding a life cycle method to call the the database when the application is loaded
   componentDidMount(
     ){
+      console.log(process.env.REACT_APP_TMDB_API_KEY,process.env)
    // Making a call to the database to see how the data comes back and testing my key
 axios
 .get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&query=Jack+Reacher`)
