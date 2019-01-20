@@ -23,7 +23,7 @@ class NewReleases extends Component {
   };
 
   render() {
-    console.log(this.props.context.movieData.movies);
+
     return (
       <div>
         <Row>{this.displayMovies()}</Row>
