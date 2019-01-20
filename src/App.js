@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 //Importing dependencies axios is used for http request.
 import axios from "axios";
+import { Media } from "reactstrap";
 import "./App.css";
 
 class App extends Component {
@@ -42,7 +43,15 @@ class App extends Component {
     console.log(this.state.movies);
     if (this.state.movies !== []) {
       return this.state.movies.map(movie => (
-        <div key={movie.title}>{movie.title}</div>
+        <div key={movie.title}>
+        <div style={{fontSize:"1.3vw"}}>{movie.title}</div>
+          
+          <Media
+            style={{ width: "16vw" }}
+            src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+          />
+   
+        </div>
       ));
     }
   };
