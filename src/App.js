@@ -7,6 +7,7 @@ import { Route } from "react-router-dom";
 import MovieProvider, { MovieContext } from "./contexts/movieProvider";
 // Importing my components here, these will be rendered in the routes section below
 import SortedMovies from "./components/sortedMovies";
+import SingleMovie from "./components/singleMovie";
 import SearchBar from "./components/searchBar";
 import "./css/App.css";
 import "./css/index.css"
@@ -27,11 +28,16 @@ class App extends Component {
                   exact
                   path="/"
                   render={() => <SortedMovies context={context} />}
-                />
+                />   
               </Fragment>
             )}
           </MovieContext.Consumer>
         </MovieProvider>
+         <Route
+            exact
+            path="/details/:id"
+            render={props => <SingleMovie {...props}/>}
+          />
       </div>
     );
   }
