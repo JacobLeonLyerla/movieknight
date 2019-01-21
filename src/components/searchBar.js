@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-class App extends Component {
+class SearchBar extends Component {
   state = {
     search: ""
   };
@@ -28,4 +28,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default SearchBar;
