@@ -36,6 +36,7 @@ class MovieProvider extends Component {
     // Making a call to the database to see how the data comes back and testing my key
     // This call will get a list of movies currently in theaters
     axios.get(url).then(response => {
+      console.log(response.data)
       this.setState({
         movies: response.data.results,
         totalPages: response.data.total_pages
