@@ -1,12 +1,13 @@
 import React, { Component,Fragment } from "react";
 // Using reactstrap and deconstructing the elements i want to use
 import { Media, Row, Col } from "reactstrap";
-
+import {Link} from "react-router-dom";
 class SortedMovies extends Component {
   displayMovies = () => {
     if (this.props.context.movieData.movies !== undefined) {
       return this.props.context.movieData.movies.map(movie => (
         <Col key={movie.id} md="1" style={{ minHeight: "25vh" }}>
+          <Link   style={{ textDecoration: "none",color:"black" }} to={`/details/${movie.id}`}>
           {/* Using my reactstrap Media component in order to render the jpg image that is stored,
           inside of the movie object, this is just a test however i would like to use this
           on the movie view, where we will show the single movie and it's details */}
@@ -15,7 +16,8 @@ class SortedMovies extends Component {
             src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
           /></Fragment>):null}
           <div style={{ fontSize: "1vw", minHeight: "7vh" }}>{movie.title}</div>
-        </Col>
+        </Link></Col>
+        
       ));
     }
   };
