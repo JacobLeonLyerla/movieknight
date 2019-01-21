@@ -3,5 +3,11 @@
   margin-top: 3vh;
 }
 .container .searchTerm {
-  color: blue;
+  width: 30vw;
+}
+.container .searchButton {
+  background: powderblue;
+}
+.container .searchButton .fa-search {
+  color: white;
 }
