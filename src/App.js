@@ -6,23 +6,27 @@ import { Route } from "react-router-dom";
 // Importing in the context provider
 import MovieProvider, { MovieContext } from "./contexts/movieProvider";
 // Importing my components here, these will be rendered in the routes section below
-import NewReleases from "./components/newReleases";
-import "./App.css";
+import SortedMovies from "./components/sortedMovies";
+import SearchBar from "./components/searchBar";
+import "./css/App.css";
+import "./css/index.css"
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         {/* Wrapping my routes in my provider and context Consumer */}
+        
         <MovieProvider>
           <MovieContext.Consumer>
             {/* this is a child of Consumer, it is a render prop I called it context just to keep it simple */}
             {context => (
               <Fragment>
+                <SearchBar handleSearch={context.actions.handleSearch}/>
                 <Route
                   exact
                   path="/"
-                  render={() => <NewReleases context={context} />}
+                  render={() => <SortedMovies context={context} />}
                 />
               </Fragment>
             )}
