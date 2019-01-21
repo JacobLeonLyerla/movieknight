@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Enzyme, { shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import NewReleases from "../components/newReleases";
+import SortedMovies from "../components/sortedMovies";
 import MovieProvider, { MovieContext } from "../contexts/movieProvider";
 Enzyme.configure({ adapter: new Adapter() });
 describe(" <MovieProvider>", () => {
@@ -11,7 +11,7 @@ describe(" <MovieProvider>", () => {
     ReactDOM.render(
       <MovieProvider>
         <MovieContext.Consumer>
-          {context => <NewReleases context={context} />}
+          {context => <SortedMovies context={context} />}
         </MovieContext.Consumer>
       </MovieProvider>,
       div
@@ -21,7 +21,7 @@ describe(" <MovieProvider>", () => {
     let element = shallow(
       <MovieProvider>
         <MovieContext.Consumer>
-          {context => <NewReleases context={context} />}
+          {context => <SortedMovies context={context} />}
         </MovieContext.Consumer>
       </MovieProvider>
     );
@@ -31,7 +31,7 @@ describe(" <MovieProvider>", () => {
     const wrapper = shallow(
       <MovieProvider>
         <MovieContext.Consumer>
-          {context => <NewReleases context={context} />}
+          {context => <SortedMovies context={context} />}
         </MovieContext.Consumer>
       </MovieProvider>
     );
@@ -41,7 +41,7 @@ describe(" <MovieProvider>", () => {
     const wrapper = shallow(
       <MovieProvider>
         <MovieContext.Consumer>
-          {context => <NewReleases context={context} />}
+          {context => <SortedMovies context={context} />}
         </MovieContext.Consumer>
       </MovieProvider>
     );
@@ -54,7 +54,7 @@ describe(" <MovieProvider>", () => {
     const wrapper = shallow(
       <MovieProvider>
         <MovieContext.Consumer>
-          {context => <NewReleases context={context} />}
+          {context => <SortedMovies context={context} />}
         </MovieContext.Consumer>
       </MovieProvider>
     );
@@ -65,7 +65,7 @@ describe(" <MovieProvider>", () => {
     const wrapper = shallow(
       <MovieProvider>
         <MovieContext.Consumer>
-          {context => <NewReleases context={context} />}
+          {context => <SortedMovies context={context} />}
         </MovieContext.Consumer>
       </MovieProvider>
     );
