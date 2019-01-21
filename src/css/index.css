@@ -1,0 +1,13 @@
+.container {
+  margin-bottom: 3vh;
+  margin-top: 3vh;
+}
+.container .searchTerm {
+  width: 30vw;
+}
+.container .searchButton {
+  background: powderblue;
+}
+.container .searchButton .fa-search {
+  color: white;
+}

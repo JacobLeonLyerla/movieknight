@@ -1,0 +1,7 @@
+.container {
+  margin-bottom: 3vh;
+  margin-top: 3vh;
+}
+.container .searchTerm {
+  color: blue;
+}
