@@ -34,5 +34,6 @@ it("state set as expected",()=>{
  it("setPage is a function",()=>{
   const wrapper = shallow(<MovieProvider/>)
   wrapper.instance().setPage()
+
 })
 });
