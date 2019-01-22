@@ -5,9 +5,9 @@ import axios from "axios";
 export const MovieContext = React.createContext({});
 
 class MovieProvider extends Component {
-  // This state will act as our context state,
-  // we will have access to this inside of all the routes
-  // that we pass our context into
+  /* This state will act as our context state,
+   we will have access to this inside of all the routes
+   that we pass our context into */
   state = {
     movies: [],
     page: 1,
@@ -21,12 +21,17 @@ class MovieProvider extends Component {
     this.fetchMovies();
   }
   fetchMovies = (page, type, search) => {
+    // if the page passed in is greater than current pages than it resets it the page count back to 1
+    if (page > this.state.totalPages) page = 1;
     // When page is defined it will be set to that param,
     // When its not we will just set it to the local state
-    if (page > this.state.totalPages) page = 1;
     if (page === undefined) page = this.state.page;
     if (type === undefined) type = this.state.type;
     if (search === undefined) search = this.state.search;
+    /* ternary if the search is not an empty string
+       it will set our url to the search url
+       when it is an empty string than we will use the url for just finding now playing, top rated and popular movies
+    */
     let url;
     search !== ""
       ? (url = `https://api.themoviedb.org/3/search/movie?api_key=${
@@ -35,36 +40,46 @@ class MovieProvider extends Component {
       : (url = `https://api.themoviedb.org/3/movie/${type}?api_key=${
           process.env.REACT_APP_TMDB_API_KEY
         }&language=en-US&page=${page}&include_adult=false`);
-    // Making a call to the database to see how the data comes back and testing my key
-    // This call will get a list of movies currently in theaters
-    axios.get(url).then(response => {
-      console.log(response.data);
-      this.setState({
-        movies: response.data.results,
-        totalPages: response.data.total_pages
-      });
-    });
+    /* axios.get will make a get request to the server if the request is successfull
+     we will get the data from the api back in the form of an object, if it is unsuccessfull
+     we will console.log the error */
+    axios
+      .get(url)
+      .then(response => {
+        this.setState({
+          movies: response.data.results,
+          totalPages: response.data.total_pages
+        });
+      })
+      .catch(err => console.log(err));
   };
   // this function allows me to change the state of my context provider by callling this inside of my route
   setPage = value => {
+    /* when the value if greater than the total pages
+      this will catch it and reset it back to 1
+      if it's not than we just set the page to the value passed in */
     if (value > this.state.totalPages) {
       this.setState({ page: 1 });
     } else {
       this.setState({ page: value });
     }
   };
-  // this will take my name and value from my button and use the name to pic the key on state,
-  // setting the value onto that key
-  // after it calls fetch movies to change the items rendered
+  /* this will take my name and value from my button and use the name to pic the key on state,
+   setting the value onto that key
+   after it calls fetch movies to change the items rendered */
   handleType = e => {
     this.setState({ [e.target.name]: e.target.value, page: 1 });
-    this.fetchMovies(1, e.target.value);
+    this.fetchMovies(1, e.target.value, "");
   };
-
+  // when we search for smething this is the function that is called on submit
   handleSearch = (e, search) => {
+    // prevent default helped clear out some errors the application was having
     e.preventDefault();
+    // the user enters stings with spaces we remove them and make them pluses for the search request
     search = search.replace(" ", "+");
+    // we set search on state to the same thing as the search passed in
     this.setState({ search });
+    // call fetch movies to update the component.
     this.fetchMovies(1, "search", search);
   };
 
