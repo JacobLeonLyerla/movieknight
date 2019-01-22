@@ -1,7 +1,10 @@
 # Movie Knight
 
-Small project to browse, search and find movie details 
+Allows users to browse a large library of movies.
 
+
+# Website
+https://movieknight.netlify.com/
 ## Description
 
 You can sort the movies by now playing, top rated and popular.
@@ -22,9 +25,7 @@ You can also click on any of the movies an it will load more details
         enzyme: ^3.8.0
         enzyme-adapter-react-16: ^1.7.1
 ## Authors
-
-Contributors names and contact info
- Dominique Pizzie  
+ Jacob Lyerla
  [Linkedin](https://www.linkedin.com/in/jacob-lyerla/)
  
 ## Acknowledgments
