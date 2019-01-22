@@ -23,7 +23,10 @@ class App extends Component {
             {/* this is a child of Consumer, it is a render prop I called it context just to keep it simple */}
             {context => (
               <Fragment>
-                <SearchBar handleSearch={context.actions.handleSearch}/>
+                <Route
+                render={props=><SearchBar 
+                handleSearch={context.actions.handleSearch} {...props}/>}
+                />
                 <Route
                   exact
                   path="/"
