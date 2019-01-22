@@ -10,37 +10,42 @@ import SortedMovies from "./components/sortedMovies";
 import SingleMovie from "./components/singleMovie";
 import SearchBar from "./components/searchBar";
 import "./css/App.css";
-import "./css/index.css"
+import "./css/index.css";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         {/* Wrapping my routes in my provider and context Consumer */}
-        
+
         <MovieProvider>
           <MovieContext.Consumer>
             {/* this is a child of Consumer, it is a render prop I called it context just to keep it simple */}
             {context => (
               <Fragment>
                 <Route
-                render={props=><SearchBar 
-                handleSearch={context.actions.handleSearch} {...props}/>}
+                  render={props => (
+                    <SearchBar
+                      handleSearch={context.actions.handleSearch}
+                      {...props}
+                    />
+                  )}
                 />
                 <Route
                   exact
                   path="/"
                   render={() => <SortedMovies context={context} />}
-                />   
+                />
               </Fragment>
             )}
           </MovieContext.Consumer>
         </MovieProvider>
-         <Route
-            exact
-            path="/details/:id"
-            render={props => <SingleMovie {...props}/>}
-          />
+        {/* the details component does not need context however it will need props for pulling the id form the params */}
+        <Route
+          exact
+          path="/details/:id"
+          render={props => <SingleMovie {...props} />}
+        />
       </div>
     );
   }
