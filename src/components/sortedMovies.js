@@ -29,7 +29,7 @@ class SortedMovies extends Component {
                   }`}
                 />
               </Fragment>
-            ) : null}
+            ) : (<div className="movieImg-missing"><p>{movie.title}</p></div>)}
           </Link>
         </Col>
       ));
@@ -43,6 +43,7 @@ class SortedMovies extends Component {
     }
 
     return paginationArry.map(pagination => {
+   
       return (
         <Fragment>
           {pagination <= this.props.context.movieData.totalPages ? (
