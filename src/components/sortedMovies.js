@@ -29,7 +29,11 @@ class SortedMovies extends Component {
                   }`}
                 />
               </Fragment>
-            ) : (<div className="movieImg-missing"><p>{movie.title}</p></div>)}
+            ) : (
+              <div className="movieImg-missing">
+                <p>{movie.title}</p>
+              </div>
+            )}
           </Link>
         </Col>
       ));
@@ -43,17 +47,17 @@ class SortedMovies extends Component {
     }
 
     return paginationArry.map(pagination => {
-   
       return (
         <Fragment>
           {pagination <= this.props.context.movieData.totalPages ? (
-            <PaginationItem key={pagination}
+            <PaginationItem
+              key={pagination}
               onClick={() => [
                 this.props.context.actions.setPage(pagination),
                 this.props.context.actions.fetchMovies(pagination)
               ]}
             >
-              <PaginationLink >{pagination}</PaginationLink>
+              <PaginationLink>{pagination}</PaginationLink>
             </PaginationItem>
           ) : (
             <div />
@@ -67,42 +71,43 @@ class SortedMovies extends Component {
     return (
       <div className="movies-container">
         <Row className="movieImgs-container">{this.displayMovies()}</Row>
-      {this.props.context.movieData.totalPages >1? (
-        <Pagination >
-          {this.props.context.movieData.page - 1 > 0 ? (
+        {this.props.context.movieData.totalPages > 1 ? (
+          <Pagination>
+            {this.props.context.movieData.page - 1 > 0 ? (
+              <PaginationItem>
+                <PaginationLink
+                  previous
+                  onClick={() => [
+                    this.props.context.actions.setPage(
+                      this.props.context.movieData.page - 1
+                    ),
+                    this.props.context.actions.fetchMovies(
+                      this.props.context.movieData.page - 1
+                    )
+                  ]}
+                />
+              </PaginationItem>
+            ) : (
+              <div />
+            )}
+            {this.renderPagination()}
             <PaginationItem>
               <PaginationLink
-                previous
+                next
                 onClick={() => [
                   this.props.context.actions.setPage(
-                    this.props.context.movieData.page - 1
+                    this.props.context.movieData.page + 1
                   ),
                   this.props.context.actions.fetchMovies(
-                    this.props.context.movieData.page - 1
+                    this.props.context.movieData.page + 1
                   )
                 ]}
               />
             </PaginationItem>
-          ) : (
-            <div />
-          )}
-
-          {this.renderPagination()}
-          <PaginationItem>
-            <PaginationLink
-              next
-              onClick={() => [
-                this.props.context.actions.setPage(
-                  this.props.context.movieData.page + 1
-                ),
-                this.props.context.actions.fetchMovies(
-                  this.props.context.movieData.page + 1
-                )
-              ]}
-            />
-          </PaginationItem>
-        </Pagination>)
-      :(<div style={{height:"5.9vh"}}></div>)}
+          </Pagination>
+        ) : (
+          <div style={{ height: "5.9vh" }} />
+        )}
         <Row className="movieBtn-container">
           <Col md="3">
             <button

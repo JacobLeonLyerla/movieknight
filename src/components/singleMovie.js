@@ -1,6 +1,6 @@
-import React, { Component, Fragment } from "react";
+import React, { Component,Fragment } from "react";
 import axios from "axios";
-import { Media } from "reactstrap";
+import { Media,Col,Row } from "reactstrap";
 class SingleMovie extends Component {
   state = {
     movie: {}
@@ -18,19 +18,29 @@ class SingleMovie extends Component {
       });
   }
   showBasicInfo = () => {
+    if (this.state.movie !=={}){
     const movie = this.state.movie;
     return (
-      <div>
-        {movie.title}
-        <Media
-          style={{ width: "5vw", margin: "0 auto" }}
+      <Col key={movie.id} md="4" className="movieImg-container">
+      
+        <Media     
           src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
         />
-      </div>
+        <div>{movie.title}</div>
+        <div>{movie.tagline}</div>
+        {movie.genres?(<div className="movieGenre-container">{movie.genres.map(genre=>(<div key={genre.name} className="movie-genre">
+             {genre.name},
+
+       </div>
+         
+        ))}</div>):null}
+      </Col>
     );
+        }
   };
   render() {
-    return <Fragment>{this.showBasicInfo()}</Fragment>;
+    console.log(this.state.movie)
+    return  (<div className="movies-container"> <Row className="movieImgs-container">{this.showBasicInfo()}</Row></div>);
   }
 }
 

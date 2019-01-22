@@ -75,6 +75,13 @@ body {
 .movieBtn-container {
   justify-content: center;
 }
+.movieGenre-container {
+  display: flex;
+  justify-content: center;
+}
+.movieGenre-container .movie-genre {
+  padding: .1vw;
+}
 button.animated-button:link,
 button.animated-button:visited {
   position: relative;
