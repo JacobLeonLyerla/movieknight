@@ -1,24 +1,20 @@
-.movies-container{
+@import "global";
+.movies-container {
+  .pagination {
+    justify-content: center;
+    width: 100%;
 
-    .pagination{
-       justify-content: center;
-       width: 100%;
-    
-       margin:1vh 0 1vh;
-    
-       .page-link{
-           width:3vw;
-           color:black;
-           
-           
-       }
-       .page-link:hover{
-       background:#F7CA18;
-        
+    margin: 1vh 0 1vh;
+
+    .page-link {
+      width: 3vw;
+      color: black;
     }
-    .page-link:focus{
-        box-shadow: none;
-         
-     }
+    .page-link:hover {
+      background: @main-color;
     }
+    .page-link:focus {
+      box-shadow: none;
+    }
+  }
 }

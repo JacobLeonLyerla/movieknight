@@ -1,3 +1,8 @@
+body {
+  min-height: 90vh;
+  background: linear-gradient(#f7ca18 26vh, white 0%);
+  background-repeat: no-repeat;
+}
 .movies-container .pagination {
   justify-content: center;
   width: 100%;
@@ -8,7 +13,7 @@
   color: black;
 }
 .movies-container .pagination .page-link:hover {
-  background: #F7CA18;
+  background: #f7ca18;
 }
 .movies-container .pagination .page-link:focus {
   box-shadow: none;

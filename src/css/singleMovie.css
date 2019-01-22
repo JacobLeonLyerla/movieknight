@@ -1,0 +1,44 @@
+body {
+  min-height: 90vh;
+  background: linear-gradient(#f7ca18 26vh, white 0%);
+  background-repeat: no-repeat;
+}
+.singleMovie-container .movieImgs-container {
+  margin-bottom: 1vh;
+}
+.singleImg-container .media {
+  min-height: 66vh;
+}
+.singleImg-container .belowMovie-info {
+  font-size: 1.3vw;
+  padding: 0.3vw;
+}
+.mapedInfo-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.mapedInfo-container .mapped-info {
+  padding: 0.1vw;
+}
+.moreInfo-container {
+  padding: 0px;
+}
+.moreInfo-container .movie-overview {
+  font-size: 1vw;
+}
+.moreInfo-container .moreInfo-local {
+  font-size: 1.1vw;
+  padding: .5vw 2vw .5vw ;
+  border-bottom: 0.1vh solid black;
+}
+.movie-info:hover {
+  background: #f7ca18;
+}
+.movie-rating .progress {
+  height: 3vh;
+}
+.movie-rating .progress .progress-bar {
+  color: black;
+  font-size: 1.2vw;
+}

@@ -1,31 +1,43 @@
 // creatching a search bar style sheet right now it's basic but i'll have something better tomorrow
 
 .container {
+  margin: 0px;
+  padding: 0px;
   margin-bottom: 3vh;
-  margin-top: 3vh;
+  margin-top: 0.3vh;
+  max-width: 100vw;
 
+  .logo {
+    display: flex;
+    text-align: left;
+    margin-left: 1vw;
+    font-size: 1.4vw;
+    letter-spacing: 0.2ch;
+    font-family: "Holtwood One SC", serif;
+    p {
+      margin: 0px;
+      display: flex;
 
-    .searchTerm {
-      width: 30vw;
-      height: 4vh;
-   
+      align-items: flex-end;
     }
-    .searchButton{
-        border:none;
-      height: 4vh;
-      width:2vw;
-        background:powderblue;
-    .fa-search{
-        color:white;
-
+  }
+  .searchTerm {
+    width: 30vw;
+    height: 4vh;
+  }
+  .searchButton {
+    border: none;
+    height: 4vh;
+    width: 2vw;
+    background: powderblue;
+    .fa-search {
+      color: white;
     }
-  
+  }
+  .searchButton:hover {
+    background: yellow;
+    .fa-search {
+      color: black;
     }
-    .searchButton:hover{
-        background:yellow;
-        .fa-search{
-            color:black;
-        }
-
-    }
+  }
 }

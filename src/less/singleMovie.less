@@ -1,3 +1,4 @@
+@import "global";
 .singleMovie-container {
   .movieImgs-container {
     margin-bottom: 1vh;
@@ -11,9 +12,6 @@
   .belowMovie-info {
     font-size: 1.3vw;
     padding: 0.3vw;
-    border-width: 0vh 0.1vh 0.1vh 0vh;
-    border-style: solid;
-    border-color: black;
   }
 }
 .mapedInfo-container {
@@ -23,7 +21,6 @@
   .mapped-info {
     padding: 0.1vw;
   }
-
 }
 .moreInfo-container {
   padding: 0px;
@@ -32,20 +29,20 @@
   }
   .moreInfo-local {
     font-size: 1.1vw;
-      padding:.5vw 2vw .5vw ;
+    padding: 0.5vw 2vw 0.5vw;
     border-bottom: 0.1vh solid black;
   }
 }
 .movie-info:hover {
-  background: #f7ca18;
+  background: @main-color;
 }
-.movie-rating{
-    .progress{
-height: 3vh;
- 
-    .progress-bar{
-        color:black;
-        font-size:1.2vw;
-    } 
+.movie-rating {
+  .progress {
+    height: 3vh;
+
+    .progress-bar {
+      color: black;
+      font-size: 1.2vw;
+    }
   }
 }
