@@ -3,9 +3,14 @@
     margin:0 auto;
    
 .movieImgs-container{
-    max-height:74.5vh;
+    background:white;
+   
+    height:75.9vh;
     overflow: hidden;
     overflow-y:scroll;
+    border: .1vw solid black;
+
+    
 }
   .movieImg-container{
        
@@ -13,27 +18,31 @@
         .media{
              width:100%;
              height: 100%;
+             max-height: 44.24vh;
         }
     }
-}
-  
-.movieBtn-container{
-    justify-content: center;
-}
-/* width */
+    /* width */
 ::-webkit-scrollbar {
-    width: 20px;
+    width: 1.2vw;
+      border:1px solid white;
   }
   
   /* Track */
   ::-webkit-scrollbar-track {
+      background:white;
     box-shadow: inset 0 0 5px grey; 
    
   }
   
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #F7CA18; 
+    background: rgb(247, 215, 87)
     
   }
+}
+  
+.movieBtn-container{
+    justify-content: center;
+}
+
   
