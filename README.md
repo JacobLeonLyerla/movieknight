@@ -1,6 +1,6 @@
 # Movie Knight
 
-Small project to browse, search and find movie details 
+Allows users to browse a large library of movies.
 
 ## Description
 
