@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Media, Col, Row,Progress  } from "reactstrap";
+import { Media, Col, Row, Progress } from "reactstrap";
 class SingleMovie extends Component {
   state = {
     movie: {}
@@ -44,7 +44,7 @@ class SingleMovie extends Component {
               ))}
             </div>
           ) : null}
-           <div className="movie-releaseDate belowMovie-info movie-info">
+          <div className="movie-releaseDate belowMovie-info movie-info">
             {movie.release_date}
           </div>
         </Col>
@@ -54,35 +54,65 @@ class SingleMovie extends Component {
   moreInfo = () => {
     if (this.state.movie !== {}) {
       const movie = this.state.movie;
-      const langages = movie.spoken_languages
-      return(
-      <Col   
-      md="7"
-      className="moreInfo-container"
-    >
-    <div className="movie-overview  moreInfo-local movie-info ">{movie.overview}</div>
-    {movie.production_companies ? (
-            <div className="  moreInfo-local movie-info mapedInfo-container">
-              {movie.production_companies.map(company => (
-                <div key={company.name} className="movie-company mapped-info">
-                  {company.name},
-                </div>
-              ))}
+      let revenue;
+      if (movie.revenue !== undefined)
+        revenue = `$${movie.revenue
+          .toString()
+          .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}`;
+
+      return (
+        <Col md="7" className="moreInfo-container">
+          <div className="movie-overview  moreInfo-local movie-info ">
+            {movie.overview}
+          </div>
+          <div className="movie-rating  moreInfo-local ">
+            <div className="text-center">The Movie Database ratings</div>
+            <Progress color="warning" value={movie.vote_average} max={10}>
+              {movie.vote_average}
+            </Progress>
+          </div>
+          <div className="text-center movie-info">
+            Prodution Companies
+            {movie.production_companies ? (
+              <div className="  moreInfo-local  mapedInfo-container">
+                {movie.production_companies.map(company => (
+                  <div key={company.name} className="movie-company mapped-info">
+                    {company.name},
+                  </div>
+                ))}
+              </div>
+            ) : null}
+          </div>
+
+          <div className="text-center movie-info">
+            Produced in
+            {movie.production_countries ? (
+              <div className="  moreInfo-local  mapedInfo-container">
+                {movie.production_countries.map(country => (
+                  <div key={country.name} className="movie-company mapped-info">
+                    {country.name},
+                  </div>
+                ))}
+              </div>
+            ) : null}
+          </div>
+          <div className="text-center movie-info">
+            Movie revenue
+            <div className="movie-revenue  moreInfo-local movie-info ">
+              {revenue}
             </div>
-          ) : null}<div className="movie-rating  moreInfo-local "> 
-                <div className="text-center">Rating</div>
-           <Progress color="warning"  value={movie.vote_average} max={10} >{movie.vote_average}</Progress>
-    </div>
-    {movie.spoken_languages > 1?<div>no</div>:"hi"}
-    </Col>)
+          </div>
+        </Col>
+      );
     }
   };
   render() {
     console.log(this.state.movie);
     return (
       <div className="movies-container singleMovie-container">
-        <Row className="movieImgs-container">{this.poster()}
-        {this.moreInfo()}
+        <Row className="movieImgs-container">
+          {this.poster()}
+          {this.moreInfo()}
         </Row>
         <Col md="3" style={{ margin: "0 auto" }}>
           <button
