@@ -160,7 +160,7 @@ class SingleMovie extends Component {
 
           {movie.original_language ? (
             <div className="text-center movie-info">
-              Spoken Languages
+              Original Languages
               <div className="movie-orignalLang  moreInfo-local movie-info ">
                 {movie.original_language}
               </div>
