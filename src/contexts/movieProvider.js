@@ -68,7 +68,7 @@ class MovieProvider extends Component {
    setting the value onto that key
    after it calls fetch movies to change the items rendered */
   handleType = e => {
-    this.setState({ [e.target.name]: e.target.value, page: 1 });
+    this.setState({ [e.target.name]: e.target.value, page: 1,search:"" });
     this.fetchMovies(1, e.target.value, "");
   };
   // when we search for smething this is the function that is called on submit
