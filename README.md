@@ -22,9 +22,7 @@ You can also click on any of the movies an it will load more details
         enzyme: ^3.8.0
         enzyme-adapter-react-16: ^1.7.1
 ## Authors
-
-Contributors names and contact info
- Dominique Pizzie  
+ Jacob Lyerla
  [Linkedin](https://www.linkedin.com/in/jacob-lyerla/)
  
 ## Acknowledgments
