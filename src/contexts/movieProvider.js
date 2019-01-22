@@ -23,8 +23,10 @@ class MovieProvider extends Component {
   fetchMovies = (page, type, search) => {
     // When page is defined it will be set to that param,
     // When its not we will just set it to the local state
+    if(page > this.state.totalPages) page = 1
     if (page === undefined) page = this.state.page;
     if (type === undefined) type = this.state.type;
+
     let url;
     search
       ? (url = `https://api.themoviedb.org/3/${type}/movie?api_key=${
@@ -44,8 +46,12 @@ class MovieProvider extends Component {
     });
   };
   // this function allows me to change the state of my context provider by callling this inside of my route
-  setPage = () => {
-    this.setState({ page: this.state.page + 1 });
+  setPage = (value) => {
+    if (value >this.state.totalPages){
+      this.setState({page:1})
+    }else{
+    this.setState({ page:value });
+    }
   };
   // this will take my name and value from my button and use the name to pic the key on state,
   // setting the value onto that key
