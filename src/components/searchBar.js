@@ -9,7 +9,7 @@ class SearchBar extends Component {
   render() {
     return (
       // Basic search bar for testing purposes
-      <form className="container" onSubmit={(e)=>[this.props.handleSearch(e,this.state.search),this.setState({search:""})]}>
+      <form className="container" onSubmit={(e)=>[this.props.handleSearch(e,this.state.search),this.setState({search:""}), this.props.history.push("/")]}>
         
           <input
             value={this.state.search}

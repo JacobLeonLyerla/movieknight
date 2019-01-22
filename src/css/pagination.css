@@ -1,3 +1,15 @@
 .movies-container .pagination {
-  background: blue;
+  justify-content: center;
+  width: 100%;
+  margin: 1vh 0 1vh;
+}
+.movies-container .pagination .page-link {
+  width: 3vw;
+  color: black;
+}
+.movies-container .pagination .page-link:hover {
+  background: #F7CA18;
+}
+.movies-container .pagination .page-link:focus {
+  box-shadow: none;
 }

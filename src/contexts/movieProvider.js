@@ -23,22 +23,22 @@ class MovieProvider extends Component {
   fetchMovies = (page, type, search) => {
     // When page is defined it will be set to that param,
     // When its not we will just set it to the local state
-    if(page > this.state.totalPages) page = 1
+    if (page > this.state.totalPages) page = 1;
     if (page === undefined) page = this.state.page;
     if (type === undefined) type = this.state.type;
-
+    if (search === undefined) search = this.state.search;
     let url;
-    search
-      ? (url = `https://api.themoviedb.org/3/${type}/movie?api_key=${
+    search !== ""
+      ? (url = `https://api.themoviedb.org/3/search/movie?api_key=${
           process.env.REACT_APP_TMDB_API_KEY
-        }&query=${search}`)
+        }&language=en-US&query=${search}&page=${page}&include_adult=false`)
       : (url = `https://api.themoviedb.org/3/movie/${type}?api_key=${
           process.env.REACT_APP_TMDB_API_KEY
-        }&language=en-US&page=${page}`);
+        }&language=en-US&page=${page}&include_adult=false`);
     // Making a call to the database to see how the data comes back and testing my key
     // This call will get a list of movies currently in theaters
     axios.get(url).then(response => {
-      console.log(response.data)
+      console.log(response.data);
       this.setState({
         movies: response.data.results,
         totalPages: response.data.total_pages
@@ -46,11 +46,11 @@ class MovieProvider extends Component {
     });
   };
   // this function allows me to change the state of my context provider by callling this inside of my route
-  setPage = (value) => {
-    if (value >this.state.totalPages){
-      this.setState({page:1})
-    }else{
-    this.setState({ page:value });
+  setPage = value => {
+    if (value > this.state.totalPages) {
+      this.setState({ page: 1 });
+    } else {
+      this.setState({ page: value });
     }
   };
   // this will take my name and value from my button and use the name to pic the key on state,

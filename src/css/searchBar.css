@@ -10,4 +10,5 @@
 }
 .container .searchButton .fa-search {
   color: white;
+  border: none;
 }
