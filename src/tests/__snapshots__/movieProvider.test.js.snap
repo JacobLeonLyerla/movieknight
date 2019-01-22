@@ -21,12 +21,16 @@ ShallowWrapper {
       "value": Object {
         "actions": Object {
           "fetchMovies": [Function],
+          "handleSearch": [Function],
+          "handleType": [Function],
           "setPage": [Function],
         },
         "movieData": Object {
           "movies": Array [],
           "page": 1,
+          "search": "",
           "totalPages": 0,
+          "type": "now_playing",
         },
       },
     },
@@ -61,12 +65,16 @@ ShallowWrapper {
         "value": Object {
           "actions": Object {
             "fetchMovies": [Function],
+            "handleSearch": [Function],
+            "handleType": [Function],
             "setPage": [Function],
           },
           "movieData": Object {
             "movies": Array [],
             "page": 1,
+            "search": "",
             "totalPages": 0,
+            "type": "now_playing",
           },
         },
       },
