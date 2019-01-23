@@ -32,6 +32,7 @@
     background: powderblue;
     .fa-search {
       color: white;
+      font-size:1vw;
     }
   }
   .searchButton:hover {
@@ -40,4 +41,68 @@
       color: black;
     }
   }
+}
+@media @smalldesktop{
+  .container{
+    .searchButton {
+      border: none;
+      height: 3.9vh;
+      width: 3vw;
+      background: powderblue;
+      .fa-search {
+        color: white;
+        font-size:1.8vw;
+      }
+    }
+  }
+  }
+
+@media @laptop{
+  .container{
+    .logo {
+      justify-content: center;
+      margin-bottom: 1vw;
+      font-size: 3.4vw;
+
+    }
+
+    .searchTerm {
+      width: 60vw;
+      height: 4vh;
+    }
+    .searchButton {
+      border: none;
+      height: 3.9vh;
+      width: 4vw;
+      background: powderblue;
+      .fa-search {
+        color: white;
+        font-size:2vw;
+      }
+    }
+  }
+  }
+@media @tablet{
+  
+.container{
+  .logo {
+    justify-content: center;
+    margin-bottom: 1vw;
+    font-size: 3.4vw;
+  }
+  .searchTerm {
+    width: 80vw;
+    height: 4vh;
+  }
+  .searchButton {
+    border: none;
+    height: 3.9vh;
+    width: 5vw;
+    background: powderblue;
+    .fa-search {
+      color: white;
+      font-size:3vw;
+    }
+  }
+}
 }
