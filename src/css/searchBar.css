@@ -1,14 +1,39 @@
 .container {
+  margin: 0px;
+  padding: 0px;
   margin-bottom: 3vh;
-  margin-top: 3vh;
+  margin-top: 0.3vh;
+  max-width: 100vw;
+}
+.container .logo {
+  display: flex;
+  text-align: left;
+  margin-left: 1vw;
+  font-size: 1.4vw;
+  letter-spacing: 0.2ch;
+  font-family: "Holtwood One SC", serif;
+}
+.container .logo p {
+  margin: 0px;
+  display: flex;
+  align-items: flex-end;
 }
 .container .searchTerm {
   width: 30vw;
+  height: 4vh;
 }
 .container .searchButton {
+  border: none;
+  height: 4vh;
+  width: 2vw;
   background: powderblue;
 }
 .container .searchButton .fa-search {
   color: white;
-  border: none;
+}
+.container .searchButton:hover {
+  background: yellow;
+}
+.container .searchButton:hover .fa-search {
+  color: black;
 }
