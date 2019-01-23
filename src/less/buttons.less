@@ -1,7 +1,7 @@
 // I edited this down a bit, to fit my code however full credit goes to
 // https://codepen.io/sazzad/pen/yNNNJG
 //http://designify.me/tutorials/flat-buttons-with-animated-hover-effects/
-@import "global";
+@import "variables";
 button.animated-button:link,
 button.animated-button:visited {
   position: relative;
@@ -101,9 +101,19 @@ button.animated-button.thar-three:before {
 .btn:focus {
   box-shadow: none;
 }
-.selected {
-  background: @main-color;
+
+@media @smalldesktop{
+button.animated-button.thar-three{
+
+    font-size: 1.4vh;
+  }
 }
+@media @laptop{
+  button.animated-button.thar-three{
+  
+      font-size: 1.4vh;
+    }
+  }
 // I edited this down a bit, to fit my code however full credit goes to
 // https://codepen.io/sazzad/pen/yNNNJG
 //http://designify.me/tutorials/flat-buttons-with-animated-hover-effects/
