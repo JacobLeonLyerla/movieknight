@@ -35,12 +35,67 @@ body {
 }
 .container .searchButton .fa-search {
   color: white;
+  font-size: 1vw;
 }
 .container .searchButton:hover {
   background: yellow;
 }
 .container .searchButton:hover .fa-search {
   color: black;
+}
+@media only screen and (min-width: 960px) and (max-width: 1199px) {
+  .container .searchButton {
+    border: none;
+    height: 3.9vh;
+    width: 3vw;
+    background: powderblue;
+  }
+  .container .searchButton .fa-search {
+    color: white;
+    font-size: 1.8vw;
+  }
+}
+@media only screen and (min-width: 720px) and (max-width: 959px) {
+  .container .logo {
+    justify-content: center;
+    margin-bottom: 1vw;
+    font-size: 3.4vw;
+  }
+  .container .searchTerm {
+    width: 60vw;
+    height: 4vh;
+  }
+  .container .searchButton {
+    border: none;
+    height: 3.9vh;
+    width: 4vw;
+    background: powderblue;
+  }
+  .container .searchButton .fa-search {
+    color: white;
+    font-size: 2vw;
+  }
+}
+@media only screen and (max-width: 719px) {
+  .container .logo {
+    justify-content: center;
+    margin-bottom: 1vw;
+    font-size: 3.4vw;
+  }
+  .container .searchTerm {
+    width: 80vw;
+    height: 4vh;
+  }
+  .container .searchButton {
+    border: none;
+    height: 3.9vh;
+    width: 5vw;
+    background: powderblue;
+  }
+  .container .searchButton .fa-search {
+    color: white;
+    font-size: 3vw;
+  }
 }
 .movies-container {
   width: 60vw;
@@ -123,6 +178,42 @@ body {
 .movie-rating .progress .progress-bar {
   color: black;
   font-size: 1.2vw;
+}
+@media only screen and (min-width: 960px) and (max-width: 1199px) {
+  .singleImg-container .media {
+    min-height: 50vh;
+  }
+  .singleImg-container .belowMovie-info {
+    font-size: 1.5vw;
+  }
+  .moreInfo-container .moreInfo-local {
+    font-size: 1.3vw;
+  }
+}
+@media only screen and (min-width: 720px) and (max-width: 959px) {
+  .singleImg-container .media {
+    min-height: 66vh;
+  }
+  .singleImg-container .belowMovie-info {
+    font-size: 1.9vw;
+    border-bottom: .1vw solid black;
+  }
+  .moreInfo-container .moreInfo-local {
+    font-size: 1.8vw;
+  }
+}
+@media only screen and (max-width: 719px) {
+  .singleImg-container .media {
+    min-height: 60vh;
+  }
+  .singleImg-container .belowMovie-info {
+    font-size: 3.3vw;
+    border-bottom: .1vw solid black;
+  }
+  .moreInfo-container .moreInfo-local {
+    font-size: 2.3vw;
+    padding: 2vw 2vw 3vw;
+  }
 }
 button.animated-button:link,
 button.animated-button:visited {
@@ -221,8 +312,15 @@ button.animated-button.thar-three:before {
 .btn:focus {
   box-shadow: none;
 }
-.selected {
-  background: #f7ca18;
+@media only screen and (min-width: 960px) and (max-width: 1199px) {
+  button.animated-button.thar-three {
+    font-size: 1.4vh;
+  }
+}
+@media only screen and (min-width: 720px) and (max-width: 959px) {
+  button.animated-button.thar-three {
+    font-size: 1.4vh;
+  }
 }
 .movies-container .pagination {
   justify-content: center;
@@ -238,4 +336,10 @@ button.animated-button.thar-three:before {
 }
 .movies-container .pagination .page-link:focus {
   box-shadow: none;
+}
+@media only screen and (max-width: 719px) {
+  .page-link {
+    font-weight: bold;
+    font-size: 3vw;
+  }
 }
