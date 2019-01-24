@@ -3,6 +3,7 @@
 Allows users to browse a large library of movies.
 
 
+![Movie Knight gif](https://media.giphy.com/media/1xoZgBredRKvNsu1sn/giphy.gif)
 # Website
 https://movieknight.netlify.com/
 ## Description
