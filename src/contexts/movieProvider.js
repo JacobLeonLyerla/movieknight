@@ -1,4 +1,6 @@
-import React, { Component } from "react";
+import React, {
+  Component
+} from "react";
 // Importing dependencies axios is used for http request.
 import axios from "axios";
 // Exporting our context
@@ -33,11 +35,11 @@ class MovieProvider extends Component {
        when it is an empty string than we will use the url for just finding now playing, top rated and popular movies
     */
     let url;
-    search !== ""
-      ? (url = `https://api.themoviedb.org/3/search/movie?api_key=${
+    search !== "" ?
+      (url = `https://api.themoviedb.org/3/search/movie?api_key=${
           process.env.REACT_APP_TMDB_API_KEY
-        }&language=en-US&query=${search}&page=${page}&include_adult=false`)
-      : (url = `https://api.themoviedb.org/3/movie/${type}?api_key=${
+        }&language=en-US&query=${search}&page=${page}&include_adult=false`) :
+      (url = `https://api.themoviedb.org/3/movie/${type}?api_key=${
           process.env.REACT_APP_TMDB_API_KEY
         }&language=en-US&page=${page}&include_adult=false`);
     /* axios.get will make a get request to the server if the request is successfull
@@ -59,16 +61,24 @@ class MovieProvider extends Component {
       this will catch it and reset it back to 1
       if it's not than we just set the page to the value passed in */
     if (value > this.state.totalPages) {
-      this.setState({ page: 1 });
+      this.setState({
+        page: 1
+      });
     } else {
-      this.setState({ page: value });
+      this.setState({
+        page: value
+      });
     }
   };
   /* this will take my name and value from my button and use the name to pic the key on state,
    setting the value onto that key
    after it calls fetch movies to change the items rendered */
   handleType = e => {
-    this.setState({ [e.target.name]: e.target.value, page: 1,search:"" });
+    this.setState({
+      [e.target.name]: e.target.value,
+      page: 1,
+      search: ""
+    });
     this.fetchMovies(1, e.target.value, "");
   };
   // when we search for smething this is the function that is called on submit
@@ -78,7 +88,9 @@ class MovieProvider extends Component {
     // the user enters stings with spaces we remove them and make them pluses for the search request
     search = search.replace(" ", "+");
     // we set search on state to the same thing as the search passed in
-    this.setState({ search });
+    this.setState({
+      search
+    });
     // call fetch movies to update the component.
     this.fetchMovies(1, "search", search);
   };
@@ -89,8 +101,9 @@ class MovieProvider extends Component {
 
     return (
       // Setup context provider to pass the data on state. And too pass the methods on class as actions
-      <MovieContext.Provider
-        value={{
+      <
+      MovieContext.Provider value = {
+        {
           movieData,
           actions: {
             fetchMovies: this.fetchMovies,
@@ -98,10 +111,12 @@ class MovieProvider extends Component {
             handleType: this.handleType,
             handleSearch: this.handleSearch
           }
-        }}
-      >
-        {this.props.children}
-      </MovieContext.Provider>
+        }
+      } >
+      {
+        this.props.children
+      } <
+      /MovieContext.Provider>
     );
   }
 }
