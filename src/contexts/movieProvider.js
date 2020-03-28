@@ -1,6 +1,4 @@
-import React, {
-  Component
-} from "react";
+import React, { Component } from "react";
 // Importing dependencies axios is used for http request.
 import axios from "axios";
 // Exporting our context
@@ -35,13 +33,9 @@ class MovieProvider extends Component {
        when it is an empty string than we will use the url for just finding now playing, top rated and popular movies
     */
     let url;
-    search !== "" ?
-      (url = `https://api.themoviedb.org/3/search/movie?api_key=${
-          process.env.REACT_APP_TMDB_API_KEY
-        }&language=en-US&query=${search}&page=${page}&include_adult=false`) :
-      (url = `https://api.themoviedb.org/3/movie/${type}?api_key=${
-          process.env.REACT_APP_TMDB_API_KEY
-        }&language=en-US&page=${page}&include_adult=false`);
+    search !== ""
+      ? (url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US&query=${search}&page=${page}&include_adult=false`)
+      : (url = `https://api.themoviedb.org/3/movie/${type}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US&page=${page}&include_adult=false`);
     /* axios.get will make a get request to the server if the request is successfull
      we will get the data from the api back in the form of an object, if it is unsuccessfull
      we will console.log the error */
@@ -101,9 +95,8 @@ class MovieProvider extends Component {
 
     return (
       // Setup context provider to pass the data on state. And too pass the methods on class as actions
-      <
-      MovieContext.Provider value = {
-        {
+      <MovieContext.Provider
+        value={{
           movieData,
           actions: {
             fetchMovies: this.fetchMovies,
@@ -111,12 +104,10 @@ class MovieProvider extends Component {
             handleType: this.handleType,
             handleSearch: this.handleSearch
           }
-        }
-      } >
-      {
-        this.props.children
-      } <
-      /MovieContext.Provider>
+        }}
+      >
+        {this.props.children}{" "}
+      </MovieContext.Provider>
     );
   }
 }
