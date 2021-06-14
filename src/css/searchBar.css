@@ -24,16 +24,71 @@
 }
 .container .searchButton {
   border: none;
-  height: 4vh;
+  height: 3.9vh;
   width: 2vw;
   background: powderblue;
 }
 .container .searchButton .fa-search {
   color: white;
+  font-size: 1vw;
 }
 .container .searchButton:hover {
   background: yellow;
 }
 .container .searchButton:hover .fa-search {
   color: black;
+}
+@media only screen and (min-width: 960px) and (max-width: 1199px) {
+  .container .searchButton {
+    border: none;
+    height: 3.9vh;
+    width: 3vw;
+    background: powderblue;
+  }
+  .container .searchButton .fa-search {
+    color: white;
+    font-size: 1.8vw;
+  }
+}
+@media only screen and (min-width: 720px) and (max-width: 959px) {
+  .container .logo {
+    justify-content: center;
+    margin-bottom: 1vw;
+    font-size: 3.4vw;
+  }
+  .container .searchTerm {
+    width: 60vw;
+    height: 4vh;
+  }
+  .container .searchButton {
+    border: none;
+    height: 3.9vh;
+    width: 4vw;
+    background: powderblue;
+  }
+  .container .searchButton .fa-search {
+    color: white;
+    font-size: 2vw;
+  }
+}
+@media only screen and (max-width: 719px) {
+  .container .logo {
+    justify-content: center;
+    margin-bottom: 1vw;
+    font-size: 3.4vw;
+  }
+  .container .searchTerm {
+    width: 80vw;
+    height: 4vh;
+  }
+  .container .searchButton {
+    border: none;
+    height: 3.9vh;
+    width: 5vw;
+    background: powderblue;
+  }
+  .container .searchButton .fa-search {
+    color: white;
+    font-size: 3vw;
+  }
 }
