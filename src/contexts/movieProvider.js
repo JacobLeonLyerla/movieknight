@@ -34,7 +34,7 @@ class MovieProvider extends Component {
     */
     let url;
     search !== ""
-      ? (url = `https://api.themoviedb.org/3/searsch/movie?api_key=${
+      ? (url = `https://api.themoviedb.org/3/search/movie?api_key=${
           process.env.REACT_APP_TMDB_API_KEY
         }&language=en-US&query=${search}&page=${page}&include_adult=false`)
       : (url = `https://api.themoviedb.org/3/movie/${type}?api_key=${
