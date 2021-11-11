@@ -10,6 +10,7 @@ import {
 } from "reactstrap";
 // importing Link from react router to route my application
 import { Link } from "react-router-dom";
+import Header from "./header";
 class SortedMovies extends Component {
   // This function renders the array of objects we receive from our context provider
   displayMovies = () => {
@@ -151,7 +152,7 @@ class SortedMovies extends Component {
               name="type"
               value="now_playing"
               onClick={this.props.context.actions.handleType}
-              className="btn btn-sm animated-button thar-three"
+              className="button-52"
             >
               Now playing
             </button>{" "}
@@ -161,7 +162,7 @@ class SortedMovies extends Component {
               name="type"
               value="top_rated"
               onClick={this.props.context.actions.handleType}
-              className="btn btn-sm animated-button thar-three"
+              className="button-52"
             >
               Top Rated
             </button>{" "}
@@ -171,7 +172,7 @@ class SortedMovies extends Component {
               name="type"
               value="popular"
               onClick={this.props.context.actions.handleType}
-              className="btn btn-sm animated-button thar-three"
+              className="button-52"
             >
               Popular
             </button>{" "}
