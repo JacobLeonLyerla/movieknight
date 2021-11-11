@@ -10,7 +10,6 @@ import {
 } from "reactstrap";
 // importing Link from react router to route my application
 import { Link } from "react-router-dom";
-import Header from "./header";
 class SortedMovies extends Component {
   // This function renders the array of objects we receive from our context provider
   displayMovies = () => {
